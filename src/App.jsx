@@ -55,7 +55,7 @@ function App() {
       <Map ipInfo={ipInfo} />
     </main>
   ) : (
-    <p>Loading...</p>
+    <h1>Loading...</h1>
   );
 }
 
