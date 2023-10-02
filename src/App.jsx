@@ -50,18 +50,7 @@ function App() {
         error={error}
       />
       <IpInfo ipInfo={ipInfo} />
-      <MapContainer
-        key={`${ipInfo.location.lat}${ipInfo.location.lng}`}
-        center={[ipInfo.location.lat, ipInfo.location.lng]}
-        zoom={13}
-        scrollWheelZoom={false}
-      >
-        <TileLayer
-          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        />
-        <Marker position={[ipInfo.location.lat, ipInfo.location.lng]}></Marker>
-      </MapContainer>
+      <Map ipInfo={ipInfo} />
     </main>
   ) : (
     <p>Loading...</p>
