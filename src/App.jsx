@@ -4,7 +4,7 @@ import axios from "axios";
 import IpInfo from "./components/IpInfo";
 import Map from "./components/Map";
 import { MapContainer, TileLayer, Marker } from "react-leaflet";
-import { isIpAddress, isDomain } from "./helperFunctions/helpers";
+import { isIpAddress, isDomain } from "./helpers/helpers";
 
 function App() {
   const baseUrl = `https://geo.ipify.org/api/v2/country,city?apiKey=${
