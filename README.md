@@ -31,8 +31,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [https://github.com/kateneilsen/ip-address-tracker-react-vite](https://github.com/kateneilsen/ip-address-tracker-react-vite)
+- Live Site URL: [https://ip-address-tracker-react-vite.vercel.app](https://ip-address-tracker-react-vite.vercel.app)
 
 ## My process
 
