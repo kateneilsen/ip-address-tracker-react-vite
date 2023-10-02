@@ -4,6 +4,7 @@ import axios from "axios";
 import IpInfo from "./components/IpInfo";
 import Map from "./components/Map";
 import { MapContainer, TileLayer, Marker } from "react-leaflet";
+import { isIpAddress, isDomain } from "./helperFunctions/helpers";
 
 function App() {
   const baseUrl = `https://geo.ipify.org/api/v2/country,city?apiKey=${
@@ -12,6 +13,7 @@ function App() {
 
   const [ipInfo, setIpInfo] = useState(null);
   const [loaded, setLoaded] = useState(false);
+  const [query, setQuery] = useState("");
   const [error, setError] = useState("");
 
   useEffect(() => {
@@ -25,9 +27,28 @@ function App() {
     setLoaded(true);
   };
 
+  const handleSearch = async () => {
+    let response;
+    if (isDomain(query)) {
+      response = await axios.get(`${baseUrl}&domain=${query}`);
+    } else if (isIpAddress(query)) {
+      response = await axios.get(`${baseUrl}&ipAddress=${query}`);
+    } else {
+      console.log("error!");
+      setError("Please enter a valid domain or ip address");
+    }
+    setIpInfo(response.data);
+    setLoaded(true);
+  };
+
   return loaded ? (
     <main>
-      <Search />
+      <Search
+        query={query}
+        setQuery={setQuery}
+        handleSearch={handleSearch}
+        error={error}
+      />
       <IpInfo ipInfo={ipInfo} />
       <MapContainer
         center={[ipInfo.location.lat, ipInfo.location.lng]}

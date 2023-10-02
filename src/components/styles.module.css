@@ -22,6 +22,16 @@
     padding-inline-start: 1rem;
     width: 325px;
     flex-grow: inherit;
+    position: relative;
+  }
+
+  .error{
+    color: red;
+    font-weight: 500;
+    font-size: 13px;
+    position: absolute;
+    top: 0;
+    left: 10px;
   }
 
   .map{
@@ -70,7 +80,8 @@
       }
   
       .responseInfo span{
-        flex: 1;
+        flex:1;
+        width: fit-content;
       }
   
       .responseInfo span:not(span:first-of-type) {

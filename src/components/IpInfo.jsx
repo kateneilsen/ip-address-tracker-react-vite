@@ -4,7 +4,7 @@ import styles from "./styles.module.css";
 const IpInfo = ({ ipInfo }) => {
   return (
     <section className={styles.responseInfo}>
-      <span className={styles.textwrap}>
+      <span>
         <h2>IP ADDRESS</h2>
         <b>{ipInfo.ip}</b>
       </span>
