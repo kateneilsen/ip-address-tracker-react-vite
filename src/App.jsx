@@ -3,7 +3,6 @@ import Search from "./components/Search";
 import axios from "axios";
 import IpInfo from "./components/IpInfo";
 import Map from "./components/Map";
-import { MapContainer, TileLayer, Marker, useMap } from "react-leaflet";
 import { isIpAddress, isDomain } from "./helpers/helpers";
 
 function App() {
