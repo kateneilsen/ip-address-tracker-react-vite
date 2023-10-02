@@ -27,16 +27,20 @@ function App() {
 
   const handleSearch = async () => {
     let response;
-    if (isDomain(query)) {
-      response = await axios.get(`${baseUrl}&domain=${query}`);
-    } else if (isIpAddress(query)) {
-      response = await axios.get(`${baseUrl}&ipAddress=${query}`);
-    } else {
-      console.log("error!");
-      setError("Please enter a valid domain or ip address");
+    try {
+      if (isDomain(query)) {
+        response = await axios.get(`${baseUrl}&domain=${query}`);
+      } else if (isIpAddress(query)) {
+        response = await axios.get(`${baseUrl}&ipAddress=${query}`);
+      } else {
+        console.log("error!");
+        setError("Enter a valid domain or ip address");
+      }
+      setIpInfo(response.data);
+      setLoaded(true);
+    } catch (error) {
+      setError("Enter a valid domain or ip address");
     }
-    setIpInfo(response.data);
-    setLoaded(true);
   };
 
   return loaded ? (
