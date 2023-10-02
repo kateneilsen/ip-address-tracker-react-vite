@@ -3,7 +3,7 @@ import Search from "./components/Search";
 import axios from "axios";
 import IpInfo from "./components/IpInfo";
 import Map from "./components/Map";
-import { MapContainer, TileLayer, Marker } from "react-leaflet";
+import { MapContainer, TileLayer, Marker, useMap } from "react-leaflet";
 import { isIpAddress, isDomain } from "./helpers/helpers";
 
 function App() {
@@ -51,6 +51,7 @@ function App() {
       />
       <IpInfo ipInfo={ipInfo} />
       <MapContainer
+        key={`${ipInfo.location.lat}${ipInfo.location.lng}`}
         center={[ipInfo.location.lat, ipInfo.location.lng]}
         zoom={13}
         scrollWheelZoom={false}
